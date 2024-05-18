@@ -1,5 +1,6 @@
 import styles from './App.styles.module.scss'
 import LogoImg from './shared/assets/images/Logo'
+import { Button } from './shared/components/Button/Button.view'
 import { Input } from './shared/components/Input/Input.view'
 
 function App() {
@@ -15,6 +16,8 @@ function App() {
           name="message"
           placeholder="Insira sua mensagem*"
         />
+
+        <Button>Enviar</Button>
       </form>
     </div>
   )
