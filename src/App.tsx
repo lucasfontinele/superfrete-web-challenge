@@ -1,5 +1,6 @@
 import styles from './App.styles.module.scss'
 import LogoImg from './shared/assets/images/Logo'
+import { Input } from './shared/components/Input/Input.view'
 
 function App() {
   return (
@@ -8,7 +9,13 @@ function App() {
         <LogoImg />
       </div>
 
-      <p>Poppins teste</p>
+      <form className={styles.formContainer}>
+        <Input
+          label="Digite um texto abaixo"
+          name="message"
+          placeholder="Insira sua mensagem*"
+        />
+      </form>
     </div>
   )
 }

@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+
+  label {
+    color: #4D4D4D;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 27px;
+  }
+}
+
+.inputContainer {
+  padding: 16px;
+
+  font-family: 'Poppins';
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  color: #4D4D4D;
+
+  border-radius: 12px;
+  border: 1px solid #CCCCCC;
+
+  ::placeholder {
+    font-family: 'Poppins';
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    color: #999999;
+  }
+}

@@ -8,3 +8,11 @@
 .logoContainer {
   align-self: center;
 }
+
+.formContainer {
+  margin-top: 30px;
+
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+}
