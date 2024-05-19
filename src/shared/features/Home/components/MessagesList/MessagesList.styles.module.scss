@@ -1,0 +1,23 @@
+.container {
+  background: #F2F2F2;
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+  padding: 22px 16px;
+
+  > strong {
+    color: #4D4D4D;
+    font-size: 18px;
+    line-height: 27px;
+    font-weight: 600;
+  }
+}
+
+.messagesContainer {
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+}
