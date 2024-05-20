@@ -1,10 +1,12 @@
+import { formatDate } from './Message.domain'
 import styles from './Message.styles.module.scss'
+import { MessageProps } from './Message.types'
 
-export function Message() {
+export function Message({ content, date }: MessageProps) {
   return (
     <div className={styles.container}>
-      <p>Oi 😁 esta é a sua mensagem enviada anteriormente.</p>
-      <span>23/02/2024 - 12h30 </span>
+      <p>{content}</p>
+      <span>{formatDate(date)}</span>
     </div>
   )
 }

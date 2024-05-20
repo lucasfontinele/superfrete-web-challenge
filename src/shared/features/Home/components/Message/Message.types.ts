@@ -1,4 +1,4 @@
 export type MessageProps = {
   content: string
-  date: string
+  date: Date | number
 }
