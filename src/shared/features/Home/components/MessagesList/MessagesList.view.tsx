@@ -7,13 +7,12 @@ import { MessageResponse } from '../../../../services/collections/messages/messa
 
 export function MessagesList() {
   const [messages, setMessages] = useState<MessageResponse>([])
+  const isEmptyList = messages.length === 0
 
   useEffect(() => {
     const fetchData = async () => {
       const querySnapshot = await getDocs(collection(db, 'messages'));
       const response = querySnapshot.docs.map(doc => doc.data()) as MessageResponse
-
-      console.log({ response })
 
       setMessages(response)
     };
@@ -27,10 +26,11 @@ export function MessagesList() {
       <strong>Mensagens enviadas</strong>
 
       <div className={styles.messagesContainer}>
+        {isEmptyList && <span>Envie uma mensagem</span>}
         {messages.map(message => (
           <Message
             content={message.content}
-            date={message.createdAt.seconds}
+            date={message.createdAt}
           />
         ))}
       </div>

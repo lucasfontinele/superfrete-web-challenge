@@ -1,9 +1,6 @@
 export type MessageCollection = {
   content: string
-  createdAt: {
-    seconds: number
-    nanoseconds: number
-  }
+  createdAt: Date
 }
 
 export type MessageResponse = Array<MessageCollection>

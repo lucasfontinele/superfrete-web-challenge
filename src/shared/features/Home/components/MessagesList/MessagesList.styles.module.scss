@@ -19,4 +19,12 @@
   display: flex;
   flex-direction: column;
   row-gap: 16px;
+
+  > span {
+    margin-top: 50px;
+    align-self: center;
+
+    font-weight: 400;
+    font-size: 14px;
+  }
 }
