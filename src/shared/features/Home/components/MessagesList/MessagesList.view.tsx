@@ -3,6 +3,8 @@ import { Message } from '../Message/Message.view'
 import styles from './MessagesList.styles.module.scss'
 import { MessageResponse } from '../../../../services/collections/messages/messages.types';
 import { getMessages } from '../../../../services/collections/messages/messages';
+import { collection, onSnapshot } from 'firebase/firestore';
+import { db } from '../../../../services/Firebase';
 
 export function MessagesList() {
   const [messages, setMessages] = useState<MessageResponse>([])
@@ -17,6 +19,19 @@ export function MessagesList() {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    const unsubscribe = onSnapshot(collection(db, 'messages'), (snapshot) => {
+      const messages = snapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data(),
+      })) as MessageResponse;
+      setMessages(messages);
+    });
+
+    // Cleanup subscription on unmount
+    return () => unsubscribe();
+  }, []);
+
 
   return (
     <div className={styles.container}>
@@ -26,8 +41,9 @@ export function MessagesList() {
         {isEmptyList && <span>Envie uma mensagem</span>}
         {messages.map(message => (
           <Message
+            key={message.id}
             content={message.content}
-            date={message.createdAt}
+            date={message.createdAt.seconds}
           />
         ))}
       </div>

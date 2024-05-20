@@ -1,6 +1,10 @@
 export type MessageCollection = {
+  id: string
   content: string
-  createdAt: Date
+  createdAt: {
+    seconds: number
+    nanoseconds: number
+  }
 }
 
 export type MessageDTO = {

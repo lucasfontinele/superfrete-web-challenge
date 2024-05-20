@@ -6,7 +6,7 @@ export function Message({ content, date }: MessageProps) {
   return (
     <div className={styles.container}>
       <p>{content}</p>
-      <span>{formatDate(date)}</span>
+      <span>{formatDate(date * 1000)}</span>
     </div>
   )
 }
