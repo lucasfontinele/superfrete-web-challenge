@@ -1,21 +1,32 @@
-import { useCallback, useState } from 'react'
+import { FormEvent, useCallback, useState } from 'react'
 import styles from './App.styles.module.scss'
 import LogoImg from '../../assets/images/Logo'
 import { Button } from '../../components/Button/Button.view'
 import { Input } from '../../components/Input/Input.view'
 import { MessagesList } from './components/MessagesList/MessagesList.view'
+import { createMessage } from '../../services/collections/messages/messages'
 
 function App() {
   const [message, setMessage] = useState('')
-  const isDisabledSubmit = !message
+  const [fetchingMessage, setFetchingMessage] = useState(false)
+  const isDisabledSubmit = !message || fetchingMessage
 
   const handleClearMessage = useCallback(() => {
     setMessage('')
   }, [setMessage])
 
-  const handleSubmit = useCallback(() => {
+  const handleSubmit = useCallback(async (e: FormEvent) => {
+    setFetchingMessage(true)
+    e.preventDefault()
     handleClearMessage()
-  }, [])
+
+    await createMessage({
+      content: message,
+      createdAt: new Date(),
+    })
+
+    setFetchingMessage(false)
+  }, [message, setFetchingMessage])
 
   return (
     <div className={styles.wrapper}>
