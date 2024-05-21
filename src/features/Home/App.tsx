@@ -5,6 +5,7 @@ import { Button } from '../../shared/components/Button/Button.view'
 import { Input } from '../../shared/components/Input/Input.view'
 import { createMessage } from '../../shared/services/collections/messages/messages'
 import { MessagesList } from './components/MessagesList/MessagesList.view'
+import { APP_TEST_IDS } from '../../shared/constants/TestIds.constants'
 
 function App() {
   const [message, setMessage] = useState('')
@@ -32,7 +33,7 @@ function App() {
     <div className={styles.wrapper}>
       <div className={styles.container}>
         <div className={styles.logoContainer}>
-          <LogoImg />
+          <LogoImg data-testid={APP_TEST_IDS.LOGO} />
         </div>
 
         <form onSubmit={handleSubmit} className={styles.formContainer}>
