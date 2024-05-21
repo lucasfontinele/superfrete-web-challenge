@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { Message } from '../Message/Message.view'
 import styles from './MessagesList.styles.module.scss'
-import { MessageResponse } from '../../../../services/collections/messages/messages.types';
-import { getMessages } from '../../../../services/collections/messages/messages';
+import { MessageResponse } from '../../../../shared/services/collections/messages/messages.types';
+import { getMessages } from '../../../../shared/services/collections/messages/messages';
 import { collection, onSnapshot } from 'firebase/firestore';
-import { db } from '../../../../services/Firebase';
+import { db } from '../../../../shared/services/Firebase';
 
 export function MessagesList() {
   const [messages, setMessages] = useState<MessageResponse>([])
