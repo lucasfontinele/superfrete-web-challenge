@@ -1,10 +1,10 @@
 import { FormEvent, useCallback, useState } from 'react'
 import styles from './App.styles.module.scss'
-import LogoImg from '../../assets/images/Logo'
-import { Button } from '../../components/Button/Button.view'
-import { Input } from '../../components/Input/Input.view'
+import LogoImg from '../../shared/assets/images/Logo'
+import { Button } from '../../shared/components/Button/Button.view'
+import { Input } from '../../shared/components/Input/Input.view'
+import { createMessage } from '../../shared/services/collections/messages/messages'
 import { MessagesList } from './components/MessagesList/MessagesList.view'
-import { createMessage } from '../../services/collections/messages/messages'
 
 function App() {
   const [message, setMessage] = useState('')
